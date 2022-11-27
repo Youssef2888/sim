@@ -3,7 +3,7 @@ import requests
 import telebot
 from telebot import util
 from telebot import types
-tokin = "5090486218:AAGi00rBrHK5WZ0xZusfrwB175iB61rXdhI" #tokin bot
+tokin = "5090486218:AAEATGaYuS7ZLDVtR8bRMDxbJO8fdHcfjFs" #tokin bot
 
 def check_user(user_id):
     global tokin
@@ -79,7 +79,7 @@ numper:password
             
             
         def run_watch(message):
-        	global msg
+        	global msg,ree
         	msg = message.text
         	if ':' in msg:
         		start = bot.send_message(message.chat.id,f'يتم تسجيل الدخول⏳')
@@ -94,7 +94,7 @@ numper:password
         		try:
         			num = msg.split(':')[0]
         			password = msg.split(':')[1]
-        			re=requests.get(f"https://vodafone-4.mhmdlsmk.repl.co/login?number={num}&pwd={password}").json()["token"]
+        			ree=requests.get(f"https://login.smoka.repl.co/login?number={num}&pwd={password}").json()["token"]
         			start = types.InlineKeyboardButton(text="الصفحة الرئيسية",callback_data="start")
         			Keyboards = types.InlineKeyboardMarkup()
         			Keyboards.row_width = 1
@@ -130,7 +130,7 @@ numper:password
             global msg
             num = msg.split(':')[0]
             password = msg.split(':')[1]
-            re=requests.get(f"https://info.mhmdlsmk.repl.co/login?number={num}&pwd={password}").json()
+            re=requests.get(f"https://info.smoka.repl.co/login?number={num}&pwd={password}").json()
             FirstName=re["FirstName"]
             LastName=re["LastName"]
             MB=re["MB"]
@@ -158,7 +158,7 @@ numper:password
             
             
             
-            bot.send_photo(message.chat.id, 'https://ibb.co/9qhwJDy', caption=f"<strong>✪معلومات الحساب\n- - - - - - - - - -\n❃ الإسم الأول : {FirstName}\n❃ الإسم الأخير : {LastName}\n❃ الإسم البديل : {Nickname}\n❃ الوصف : {gender}\n❃ النوع : {title}\n❃ العمر : {age}\n❃ تاريخ الميلاد : {birthDate}\n❃ الجنسيه : {nationality}\n❃ المحافظة : {city}\n❃ الفليكس كوينز : {balance}\n❃ نموذج التعريفة : {tariffModelName}\n❃ فئة الخدمة : {serviceClassName}\n❃ نظام الخط : {contractSubType}\n❃ الموبايل إنترنت : {MB}\n❃ الفليكسات : {flix}\n❃ تاريخ انتهاء الباقة : {endDateTime}\n❃ تاريخ شراء الخط : {customerModifedDate}\n❃ تاريخ اخر استبدال : {startDateTime}\n❃ حالة العميل : {customerStatus}\n❃ رقم الحساب : {accountNumber}\n❃  الرقم التعريفي للحساب: {accountId}\n❃ الرقم التسلسلي للشريحة : {sim}\n❃ بروتوكول الإنترنت : {customerIp}\n❃ الرقم التعريفي للعميل : {customerID}</strong>" ,parse_mode='html')
+            bot.send_photo(message.chat.id, 'https://ibb.co/9qhwJDy', caption=f"<strong>✪معلومات الحساب\n- - - - - - - - - -\n❃ الإسم الأول : {FirstName}\n❃ الإسم الأخير : {LastName}\n❃ الإسم البديل : {Nickname}\n❃ الوصف : {title}\n❃ النوع : {gender}\n❃ العمر : {age}\n❃ تاريخ الميلاد : {birthDate}\n❃ الجنسيه : {nationality}\n❃ المحافظة : {city}\n❃ الفليكس كوينز : {balance}\n❃ نموذج التعريفة : {tariffModelName}\n❃ فئة الخدمة : {serviceClassName}\n❃ نظام الخط : {contractSubType}\n❃ الموبايل إنترنت : {MB}\n❃ الفليكسات : {flix}\n❃ تاريخ انتهاء الباقة : {endDateTime}\n❃ تاريخ شراء الخط : {customerModifedDate}\n❃ تاريخ اخر استبدال : {startDateTime}\n❃ حالة العميل : {customerStatus}\n❃ رقم الحساب : {accountNumber}\n❃  الرقم التعريفي للحساب: {accountId}\n❃ الرقم التسلسلي للشريحة : {sim}\n❃ بروتوكول الإنترنت : {customerIp}\n❃ الرقم التعريفي للعميل : {customerID}</strong>" ,parse_mode='html')
         			
             
             
@@ -166,7 +166,7 @@ numper:password
         	global msg
         	num = msg.split(':')[0]
         	password = msg.split(':')[1]
-        	re=requests.get(f"https://vodafone-4.mhmdlsmk.repl.co/login?number={num}&pwd={password}").json()["token"]
+        	
         	url=f"https://mobile.vodafone.com.eg/services/dxl/usagemng/usage?relatedParty.id={num}&validFor.startDateTime=1657663200000&%40type=BalanceDetails&validFor.endDateTime=1660168800000&limit=10&until="
         	hd={"api-host": "UsageManagementHost",
 "x-dynatrace": "MT_3_15_842549437_58-0_a556db1b-4506-43f3-854a-1d2527767923_134_2850_273",
@@ -180,7 +180,7 @@ numper:password
 "Accept": "application/json",
 "msisdn": f"{num}",
 "Accept-Language": "ar",
-"Authorization": f"Bearer {re}",
+"Authorization": f"Bearer {ree}",
 "Host": "mobile.vodafone.com.eg",
 "Connection": "Keep-Alive",
 "User-Agent": "okhttp/4.9.1"}
@@ -213,7 +213,7 @@ numper:password
         	global msg
         	num = msg.split(':')[0]
         	password = msg.split(':')[1]
-        	re=requests.get(f"https://vodafone-4.mhmdlsmk.repl.co/login?number={num}&pwd={password}").json()["token"]
+        	
         	url="https://mobile.vodafone.com.eg/services/dxl/promo/promotion?%40type=Promo&%24.context.type=offerstab&%24.characteristics%5B%40name%3D%27balance%27%5D.value=0"
         	hd={"channel": "MOBILE",
 "useCase": "Promo",
@@ -230,7 +230,7 @@ numper:password
 "Accept-Language": "ar",
 "Host": "mobile.vodafone.com.eg",
 "Connection": "Keep-Alive",
-"Authorization": f"Bearer {re}",
+"Authorization": f"Bearer {ree}",
 "Accept-Encoding": "gzip",
 "User-Agent": "okhttp/4.9.1"}
         	req=requests.get(url,headers=hd).json()
@@ -324,7 +324,7 @@ numper:password
         	global msg
         	num = msg.split(':')[0]
         	password = msg.split(':')[1]
-        	re=requests.get(f"https://vodafone-4.mhmdlsmk.repl.co/login?number={num}&pwd={password}").json()["token"]
+        	
         	url="https://mobile.vodafone.com.eg/services/dxl/promo/promotion?%40type=Promo&%24.context.type=offerstab&%24.characteristics%5B%40name%3D%27balance%27%5D.value=0"
         	hd={"channel": "MOBILE",
 "useCase": "Promo",
@@ -341,7 +341,7 @@ numper:password
 "Accept-Language": "ar",
 "Host": "mobile.vodafone.com.eg",
 "Connection": "Keep-Alive",
-"Authorization": f"Bearer {re}",
+"Authorization": f"Bearer {ree}",
 "Accept-Encoding": "gzip",
 "User-Agent": "okhttp/4.9.1"}
         	req=requests.get(url,headers=hd).json()
@@ -360,7 +360,7 @@ numper:password
         	num = msg.split(':')[0]
         	password = msg.split(':')[1]
         	
-        	re=requests.get(f"https://vodafone-4.mhmdlsmk.repl.co/login?number={num}&pwd={password}").json()["token"]
+        	
         	url=f"https://mobile.vodafone.com.eg/mobile-app/usage/topUsage/{num}?Type=CALL&billDate=909180000000&billCycle=03&customerCode=1.213017577"
         	hd={
 "hash": "1p29Kbc8edikp+ZZ0N1mNG9yFkap7BVrnBrSdpr02J4=",
@@ -377,7 +377,7 @@ numper:password
 "platform": "Android",
 "deviceType": "secret",
 "Accept-Language": "ar",
-"Authorization": f"Bearer {re}",
+"Authorization": f"Bearer {ree}",
 "Host": "mobile.vodafone.com.eg",
 "Connection": "Keep-Alive",
 "User-Agent": "okhttp/4.9.1"}
@@ -400,7 +400,7 @@ numper:password
 "platform": "Android",
 "deviceType": "secret",
 "Accept-Language": "ar",
-"Authorization": f"Bearer {re}",
+"Authorization": f"Bearer {ree}",
 "Host": "mobile.vodafone.com.eg",
 "Connection": "Keep-Alive",
 "User-Agent": "okhttp/4.9.1"}
@@ -423,7 +423,7 @@ numper:password
 "platform": "Android",
 "deviceType": "secret",
 "Accept-Language": "ar",
-"Authorization": f"Bearer {re}",
+"Authorization": f"Bearer {ree}",
 "Host": "mobile.vodafone.com.eg",
 "Connection": "Keep-Alive",
 "User-Agent": "okhttp/4.9.1"}
