@@ -3,7 +3,7 @@ import requests
 import telebot
 from telebot import util
 from telebot import types
-tokin = "5090486218:AAEATGaYuS7ZLDVtR8bRMDxbJO8fdHcfjFs" #tokin bot
+tokin = "5090486218:AAGXEyaJ-rAGjD2hPwxF-pw_eIoB8WTMxvA" #tokin bot
 
 def check_user(user_id):
     global tokin
